@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD Tax Calculator Rajasthan - Urban Development Property Tax</title>
+    <meta name="description" content="Rajasthan UD Tax Calculator: अपनी कमर्शियल और रेजिडेंशियल प्रॉपर्टी का यूडी टैक्स (Urban Development Tax) आसानी से कैलकुलेट करें। तेज़, मुफ्त और सटीक टूल।">
+    <meta name="keywords" content="UD Tax Calculator, Rajasthan UD Tax, Property Tax Calculator, Urban Development Tax Rajasthan, यूडी टैक्स कैलकुलेटर">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://udtaxcalculator.github.io/" />
+
+    <!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "UD Tax Calculator",
+      "url": "https://udtaxcalculator.github.io/",
+      "description": "Calculate Rajasthan Urban Development (UD) Tax for properties quickly.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+
+    <style>
+        /* Lightweight & Fast Loading CSS */
+        :root {
+            --primary: #1a73e8;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --card-bg: #fff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        
+        /* Header */
+        header { background: var(--card-bg); padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        header .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+        nav a { margin-left: 15px; text-decoration: none; color: #555; font-size: 0.95rem; }
+        nav a:hover { color: var(--primary); }
+
+        /* Main Container */
+        .container { max-width: 800px; margin: 30px auto; padding: 0 15px; }
+        h1 { text-align: center; margin-bottom: 10px; font-size: 2rem; color: #222; }
+        .subtitle { text-align: center; margin-bottom: 20px; color: #666; font-size: 1rem; }
+
+        /* Backlink Button CSS */
+        .backlink-btn {
+            display: block;
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            text-align: center;
+            padding: 12px 20px;
+            margin: 0 auto 30px auto;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: 1px solid #c8dcfc;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .backlink-btn:hover {
+            background-color: #d2e3fc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .backlink-btn strong {
+            font-weight: 800;
+        }
+
+        /* Calculator Card */
+        .calc-card { background: var(--card-bg); padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.95rem; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; outline: none; transition: 0.3s; }
+        input:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(26,115,232,0.2); }
+        button.calc-btn { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        button.calc-btn:hover { background: #155db1; }
+        
+        /* Result Area */
+        .result-box { display: none; margin-top: 20px; padding: 20px; background: #e6f4ea; border: 1px solid #ceead6; border-radius: 6px; text-align: center; }
+        .result-box h3 { color: #137333; margin-bottom: 5px; }
+        .tax-amount { font-size: 2rem; font-weight: bold; color: #0d652d; }
+
+        /* SEO Content Area */
+        .content-section { margin-top: 40px; background: var(--card-bg); padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .content-section h2 { font-size: 1.5rem; margin-bottom: 15px; color: #222; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .content-section p { margin-bottom: 15px; color: #444; }
+
+        /* Footer */
+        footer { text-align: center; margin-top: 40px; padding: 20px; background: var(--card-bg); border-top: 1px solid #eee; color: #666; font-size: 0.9rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+        footer .legal-links { margin-bottom: 10px; }
+        footer .legal-links a { margin: 0 10px; }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            header { flex-direction: column; text-align: center; }
+            nav { margin-top: 10px; }
+            nav a { margin: 0 10px; }
+            h1 { font-size: 1.6rem; }
+            .backlink-btn { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a href="/" class="logo">UD Tax Calc</a>
+        <nav>
+            <a href="#calculator">Home</a>
+            <a href="#about">About Tax</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="container">
+        
+        <h1>UD Tax Calculator Rajasthan</h1>
+        <p class="subtitle">अपनी कमर्शियल या रेजिडेंशियल प्रॉपर्टी का नगरीय विकास कर (Urban Development Tax) आसानी से निकालें।</p>
+
+        <!-- Dofollow Backlink Button (Top) -->
+        <a href="https://www.ssoidopen.com/2026/11/ud-tax-calculator.html" class="backlink-btn" target="_blank">
+            <strong>ud tax calculator</strong> पूरी जानकारी यहाँ देखें
+        </a>
+
+        <!-- Calculator Tool -->
+        <div id="calculator" class="calc-card">
+            <div class="form-group">
+                <label for="propertyArea">प्रॉपर्टी का एरिया (वर्ग गज में / Sq. Yards):</label>
+                <input type="number" id="propertyArea" placeholder="उदाहरण: 500" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dlcRate">DLC रेट (रु प्रति वर्ग गज):</label>
+                <input type="number" id="dlcRate" placeholder="उदाहरण: 3000" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="propertyType">प्रॉपर्टी का प्रकार:</label>
+                <select id="propertyType">
+                    <option value="residential">आवासीय (Residential)</option>
+                    <option value="commercial">व्यावसायिक (Commercial)</option>
+                    <option value="industrial">औद्योगिक (Industrial)</option>
+                </select>
+            </div>
+
+            <button class="calc-btn" onclick="calculateTax()">कैलकुलेट करें</button>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3>आपका अनुमानित UD Tax:</h3>
+                <div class="tax-amount" id="taxValue">₹0</div>
+                <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">*यह एक अनुमानित राशि है, सटीक कर के लिए स्थानीय निकाय के नियमों को देखें।</p>
+            </div>
+        </div>
+
+        <!-- SEO Content Section -->
+        <div id="about" class="content-section">
+            <h2>यूडी टैक्स (नगरीय विकास कर) क्या है?</h2>
+            <p>नगरीय विकास कर (Urban Development Tax) स्थानीय नगर निगमों, नगर परिषदों और नगर पालिकाओं द्वारा शहर के बुनियादी ढांचे (सड़कें, पानी, सफाई आदि) के विकास और रखरखाव के लिए संपत्ति मालिकों से लिया जाने वाला एक वार्षिक शुल्क है। राजस्थान में 300 वर्ग गज से अधिक की आवासीय प्रॉपर्टी और अन्य व्यावसायिक संपत्तियों पर यह कर देय होता है।</p>
+            
+            <h2>टैक्स की गणना कैसे की जाती है?</h2>
+            <p>UD Tax की गणना प्रॉपर्टी के कुल क्षेत्रफल, उस क्षेत्र की वर्तमान DLC दर और संपत्ति के उपयोग (आवासीय या व्यावसायिक) के आधार पर की जाती है। सही कर निर्धारण के लिए राजस्थान सरकार द्वारा समय-समय पर जारी अधिसूचनाओं का पालन किया जाता है।</p>
+        </div>
+
+    </div>
+
+    <!-- Footer & Legal Pages -->
+    <footer id="contact">
+        <div class="legal-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Disclaimer</a> | 
+            <a href="#">Terms & Conditions</a> | 
+            <a href="#">Contact Us</a>
+        </div>
+        <p>&copy; 2026 UD Tax Calculator. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Fast Calculation -->
+    <script>
+        function calculateTax() {
+            // Get values from user input
+            const area = parseFloat(document.getElementById('propertyArea').value);
+            const dlc = parseFloat(document.getElementById('dlcRate').value);
+            const type = document.getElementById('propertyType').value;
+            const resultBox = document.getElementById('resultBox');
+            const taxValueDisplay = document.getElementById('taxValue');
+
+            // Basic validation
+            if(isNaN(area) || isNaN(dlc) || area <= 0 || dlc <= 0) {
+                alert('कृपया एरिया और DLC रेट की सही जानकारी दर्ज करें।');
+                return;
+            }
+
+            // Calculation Logic (Demo Multipliers for Tool Functionality)
+            let taxMultiplier = 0;
+            if(type === 'residential') {
+                taxMultiplier = area > 300 ? 0.001 : 0; 
+            } else if(type === 'commercial') {
+                taxMultiplier = 0.005;
+            } else if(type === 'industrial') {
+                taxMultiplier = 0.003;
+            }
+
+            // Calculate Base Tax
+            let totalTax = area * dlc * taxMultiplier;
+
+            // Show result
+            taxValueDisplay.innerText = "₹" + totalTax.toFixed(2);
+            resultBox.style.display = "block";
+        }
+    </script>
+</body>
+</html>
